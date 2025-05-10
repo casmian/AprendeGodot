@@ -41,4 +41,12 @@ Cada tutorial debe seguir esta plantilla básica:
 3. Paso 3
 ...
 ## 📂 Archivos Relacionados: Ruta del archivo/ejemplo  
-## 📝 Notas: Consejos adicionales o advertencias
+## 📝 Notas: Consejos adicionales o advertencias 
+```
+## 📢 Comunicación
+- ** Si tienes alguna pregunta o necesitas ayuda:**
+
+- Abre un issue en GitHub.
+- Únete a nuestra comunidad en Discord (próximamente).
+-  🙏 Gracias por tu Ayuda
+-  Cada contribución cuenta. Juntos, podemos hacer que este proyecto sea útil para muchas personas.
