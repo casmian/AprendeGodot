@@ -1,4 +1,4 @@
-# 📚 Clases Principales de Godot 4.4 – Explicadas Paso a Paso
+# 🧩 Clases Principales de Godot 4.4 – Explicadas Paso a Paso
 
 Godot está construido sobre una jerarquía de clases muy bien definida. Aquí te explico las más importantes, desde las más básicas hasta las más complejas.
 
@@ -8,7 +8,6 @@ Godot está construido sobre una jerarquía de clases muy bien definida. Aquí t
 
 - **¿Qué es?** La clase base de casi todo en Godot.
 - **¿Para qué sirve?** Es el bloque fundamental de cualquier escena.
-- **Ejemplo:** Un personaje, una cámara, un botón... todo es un nodo.
 - **Hereda de:** Object
 - **Hijos comunes:** Node2D, Spatial (en 3D), Control
 
@@ -79,26 +78,12 @@ Godot está construido sobre una jerarquía de clases muy bien definida. Aquí t
 
 ---
 
-## 🧭 Input / InputMap
-
-- **¿Qué es?** Sistema de entrada del motor.
-- **¿Para qué sirve?** Detectar teclas, clicks, controles...
-- **Ejemplo:** Mover personaje con flechas del teclado
-
----
-
-## 📁 FileSystem / FileAccess
-
-- **¿Qué es?** Herramientas para leer y escribir archivos.
-- **¿Para qué sirve?** Guardar partidas, cargar datos externos...
-- **Ejemplo:** Guardar puntaje máximo en un archivo `.txt`
-
----
-
-## 🧠 Más Clases (Próximamente)
+## 🧭 Más Clases (Próximamente)
 - Camera2D
 - Area2D / CollisionShape2D
 - RigidBody2D
 - KinematicBody2D
 - ShaderMaterial
 - Y muchas más...
+
+---
