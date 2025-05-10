@@ -44,7 +44,7 @@ Cada tutorial debe seguir esta plantilla básica:
 ## 📝 Notas: Consejos adicionales o advertencias 
 ```
 ## 📢 Comunicación
-- ** Si tienes alguna pregunta o necesitas ayuda:**
+- Si tienes alguna pregunta o necesitas ayuda:
 
 - Abre un issue en GitHub.
 - Únete a nuestra comunidad en Discord (próximamente).
