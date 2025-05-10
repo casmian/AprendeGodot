@@ -100,8 +100,8 @@ Godot te ofrece tres opciones:
 
 ---
 
-📌 **Josué dice:**  
-Yo uso el modo **Compatibilidad**, porque tengo una laptop básica con solo 4GB de RAM y sin una tarjeta gráfica potente. Y funciona bien.  
+📌 **Aclaración:**  
+Yo uso el modo **Compatibilidad**, porque tengo una laptop básica sin una tarjeta gráfica potente. Y funciona bien.  
 Así que si tú también empiezas con poco, **elige "Compatibilidad"**. Podrás seguir aprendiendo sin problemas.
 
 ---
