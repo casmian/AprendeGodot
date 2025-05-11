@@ -6,30 +6,31 @@ Esta guía está pensada para desarrolladores que quieren usar **herramientas li
 
 ---
 
-## 🔧 Requisitos Previos
+## ⚠️ Notas Importantes Antes de Empezar
 
-Antes de comenzar, asegúrate de tener descargado lo siguiente:
+- ❌ No uses MinGW – Aseprite **no lo soporta oficialmente**
+- ⚙️ Desactiva temporalmente **Windows Defender** si bloquea los archivos por falso positivo
+- 🔧 Todas las herramientas necesarias son para un sistema Windows de 64 bits
+- 🔄 Si algo falla, limpia `%WORKING%` y `%TEMP%` antes de volver a intentar
+
+---
+
+## 🔧 Herramientas Necesarias
+
+Antes de empezar, asegúrate de tener estas herramientas instaladas:
+
 
 | Herramienta | Versión Mínima | Descarga |
 |-------------|----------------|----------|
 | **Visual Studio Community 2022** | Community Edition | [Descargar Visual Studio](https://visualstudio.microsoft.com/es/vs/community/) |
 | **CMake** | 3.16+ | [Descargar CMake (v3.31.7)](https://github.com/Kitware/CMake/releases/download/v3.31.7/cmake-3.31.7-windows-x86_64.msi) |
-| **Ninja Build** | v1.12.1 | [x64](https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-win.zip) / [ARM64](https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-winarm64.zip) |
-| **Windows SDK** | 10.0.20348.0 | Dependencia que se instala al configurar VS Community |
-| **Git for Windows** | Última versión | [Descargar Git](https://git-scm.com/downloads) |
-| **WinRAR (si no lo tienes)** | — | [Descargar WinRAR](https://www.win-rar.com/index.html) |
+| **Ninja Build** | v1.12.1 | [Descargar ninja x64 ](https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-win.zip) |
+| **Git for Windows** | Última versión | [Descargar Git](https://github.com/git-for-windows/git/releases/download/v2.49.0.windows.1/Git-2.49.0-64-bit.exe)|
+| **WinRAR (opcional)** | — | [Descargar WinRAR](https://www.win-rar.com/index.html) |
 
 📌 Estas herramientas te permitirán compilar Aseprite desde el código fuente.
-📦 Una ves descargados tendras que instalarlos segun la guia..
 
----
-
-## ⚠️ Notas Importantes
-
-- No uses MinGW – Aseprite **no lo soporta oficialmente**.
-- Desactiva temporalmente **Windows Defender** si bloquea los archivos por falso positivo.
-- El script crea y borra carpetas automáticamente → no muevas nada mientras se ejecuta.
-- Si algo falla, limpia `%WORKING%` y `%TEMP%` antes de volver a intentar.
+📦 Una vez descargadas, sigue esta guía para instalarlas correctamente.
 
 ---
 
@@ -65,61 +66,51 @@ Scoop es un gestor de paquetes para Windows que facilita la instalación de depe
 1. Ve a:  
    👉 [Descargar Visual Studio 2022 Community](https://visualstudio.microsoft.com/es/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&passive=false&cid=2030)
 
-2. Durante la instalación, selecciona solo esta carga de trabajo:
-   - ✅ **Desarrollo para el escritorio con C++**
+2. Una vez descargado, haz doble clic en el instalador.  
+   Deberías ver una ventana como esta:  
+   <img width="357" alt="Ventana inicial del instalador de Visual Studio" src="https://github.com/user-attachments/assets/928a5a1c-e4cc-469d-a87e-2f5afb3705f4" />  
+   Haz clic en **"Continuar"**.
 
-3. Usa este archivo `.vsconfig` para automatizar la instalación solo con lo necesario:
+3. Se abrirá el instalador. Busca la sección de **Trabajo para móviles y escritorio** y selecciona:  
+   ✅ **Desarrollo para el escritorio con C++**  
+   <img width="926" alt="Opciones de carga de trabajo" src="https://github.com/user-attachments/assets/c4c559df-055c-4530-92f7-25f408eb8813" />
 
-### 📁 Archivo: `.vsconfig`
-```json
-{
-  "version": "1.0",
-  "components": [
-    "Microsoft.VisualStudio.Component.CoreEditor",
-    "Microsoft.VisualStudio.Workload.CoreEditor",
-    "Microsoft.VisualStudio.Component.Roslyn.Compiler",
-    "Microsoft.Component.MSBuild",
-    "Microsoft.VisualStudio.Component.TextTemplating",
-    "Microsoft.VisualStudio.Component.VC.CoreIde",
-    "Microsoft.VisualStudio.Component.VC.Tools.x86.x64",
-    "Microsoft.VisualStudio.Component.VC.ATL",
-    "Microsoft.VisualStudio.Component.VC.Redist.14.Latest",
-    "Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core",
-    "Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions.CMake",
-    "Microsoft.VisualStudio.Component.VC.CMake.Project",
-    "Microsoft.VisualStudio.Component.VC.ASAN",
-    "Microsoft.VisualStudio.Component.Vcpkg",
-    "Microsoft.VisualStudio.Component.Windows10SDK.18362",
-    "Microsoft.VisualStudio.Workload.NativeDesktop"
-  ],
-  "extensions": []
-}
-```
+4. Ahora ve a **Detalles de la instalación** y desmarca todas las opciones actuales.
 
-Guarda ese archivo como `.vsconfig` y úsalo durante la instalación de VS.
+5. Marca solo estos componentes:
+   - ✅ **Herramientas de compilación de MSVC v143-VS 2022 para x64/x86**
+   - ✅ **ATL de C++ para herramientas de compilación v143 (x86/x64)**
+   - ✅ **Herramientas de CMake en C++ para Windows**
+   - ✅ **Administrador de paquetes vcpkg**
+   - ✅ **AddressSanitizer para C++**
+   - ✅ **Windows SDK 10.0.20348.0**
+
+6. Haz clic en **"Instalar"** y espera a que termine.
+
+📌 Una vez terminado, cierra todas las ventanas del instalador.
 
 ---
 
 ## 🧰 Paso 3: Compilación Automática de Aseprite
 
-Para facilitar el proceso, usaremos un script automatizado para descargar e instalar Aseprite.
+Usaremos un **script automatizado** para compilar Aseprite sin tener que hacerlo manualmente.
 
 ### 1. **Crea esta carpeta:**
 
-```
+```bash
 C:\asebuild\deps\
 ```
 
 ### 2. **Guarda el script como `build.bat` en:**
 
-```
+```bash
 C:\herramientas\aseprite\build.bat
 ```
 
 El script descargará automáticamente:
-- El código fuente de Aseprite 1.3.13
-- Skia precompilado (necesario para gráficos avanzados)
-- Y configurará todo para compilar con Visual Studio
+- 📁 Código fuente de Aseprite 1.3.13
+- 🧱 Skia precompilado (necesario para gráficos avanzados)
+- 🔧 Configurará todo para compilar con Visual Studio
 
 🔗 [Descargar Skia para Windows x64](https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia-Windows-Release-x64.zip)  
 🔗 [Descargar Skia para ARM64 (Mac M1/M2)](https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia-Windows-Release-arm64.zip)
@@ -148,8 +139,8 @@ set TEMP=%WORKING%\temp
 
 ## 🧱 Paso 5: Ejecuta el Script
 
-1. Abre PowerShell como Administrador.
-2. Ve a tu carpeta de herramientas:
+1. Abre **PowerShell como Administrador**
+2. Navega a la carpeta del script:
 
    ```powershell
    cd C:\herramientas\aseprite\
@@ -161,21 +152,20 @@ set TEMP=%WORKING%\temp
    .\build.bat
    ```
 
-⚠️ El proceso puede tardar entre 15 minutos y media hora, dependiendo de tu conexión e Internet.
+⚠️ Este proceso puede tardar entre 15 minutos y media hora, según tu conexión.
 
 ---
 
 ## 🗂️ Paso 6: Encuentra el Ejecutable Final
 
-Al terminar, encontrarás Aseprite aquí:
+Una vez terminada la compilación, encontrarás Aseprite aquí:
 
 ```
 C:\asebuild\deps\aseprite\build\bin\aseprite.exe
 ```
 
-Puedes copiar esa carpeta a donde prefieras (`D:\apps\aseprite`, etc.)
-
----
+Puedes mover este archivo a donde prefieras:  
+Ejemplo: `D:\apps\aseprite\`, `E:\juegos\tools\aseprite\`
 
 
 ---
